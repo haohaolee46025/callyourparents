@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Saira+Condensed:wght@100;200;300;400;500;600;700;800;900&family=Saira:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200..800;1,200..800&family=Source+Code+Pro:ital,wght@0,200..900;1,200..900&display=swap');
+
+:root {
+    --background-color: #000000;
+    --light-gray:hsl(210, 2%, 80%);
+    --dark-gray:#818181;
+
+    /* font */
+    --font-size: 16px;
+    --font-family: "inter", sans-serif;
+    --font-family2: "Hind Siliguri", serif;
+    --font-faimly3:"Newsreader", serif;
+    --line-hegight:24px;
+
+}
+
+body{
+    background-color: var(--background-color);
+    margin-top:30px;
+}
+
+#hero{
+    margin:2vw;
+    background-color:var(--light-gray);
+    padding-top:5px;
+    border-radius: 20px 20px 0 0;
+}
+
+hr{
+    border: 0.5px solid rgb(0, 0, 0);
+    margin:0px;
+    }
+
+.content_grid {
+    display: flex;
+    flex-direction: row;
+    align-items: top;
+}
+
+.grid_left{
+    width:60%;
+    padding:2vw;
+    display: flex; /* 使用 Flexbox 布局 */
+    flex-direction: column; /* 设置垂直布局 */
+    align-items: flex-start; /* 设置子元素水平向左对齐 */
+}
+
+
+.grid_right{
+    width:40%;
+    border-left: 1px solid rgb(0, 0, 0);
+    padding:2vw;
+    align-items: flex-start;
+}
+
+
+/* fonts */
+h1{
+    font-family: "Saira Condensed", sans-serif;
+    font-size: calc(var(--font-size)*5);
+    line-height:calc(var(--font-size)*6);
+    margin:calc(var(--font-size)*0.5);
+}
+
+h2{
+    font-size: calc(var(--font-size)*1.5);
+    color: var(--dark-gray);
+    font-family: "Karla", sans-serif;
+    font-weight: 600;
+    margin-top:5px;
+
+}
+
+h3{
+    font-size:calc(var(--font-size)*1.2);
+    color: var(--background-color);
+    line-height:calc(var(--font-size)*1.8);
+    font-family: "Karla", sans-serif;
+
+}
+
+
+
+h4{
+    font-size:var(--font-size);
+    color: var(--background-color);
+    font-weight: 300;
+    line-height:calc(var(--font-size)*1.5);
+    font-family: "Karla", sans-serif;
+
+}
+
