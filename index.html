@@ -6,31 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Call Your Parents</title>
     <link rel="stylesheet" href="./style.css" />
+    <script src="./app.js" type="module"></script>
 </head>
 
-<body>
+<header>
     <section id="hero">
         <hr>
+
         <div class="content_grid">
 
             <div class="grid_left">
                 <h1>CAN WE MEET</h1>
-                <h2>LET’S MEET 09:00-12:00 TPE <br>21:00-00:00 NYC</h2>
+                <h2>LET’S MEET at<br>21:00-00:00 New York Time <br>21:00-00:00 Taipei Time</h2>
             </div>
 
             <div class="grid_right">
                 <h3>2024. Typography & Interaction</h3>
                 <h4>Fortunately, the influence of communities can gradually alter society's perceptions and atmosphere. Therefore, I firmly believe that design education should not solely concentrate on visual expression but should also place a greater emphasis on nurturing studentsntation.</h4>
             </div>
-
-            <script src="./app.js" type="module"></script>
-        </div>
-    <h1></h1>
     </section>
+</header>
+
+<body>
+    <section id="content"></section>
+    <div id="questioncard">
+        <div id="question">
+            <div id="closemark">X</div>
+            <h4 class="question_texttitle">Today's Topic</h4>
+            <h2 class="question_text">${randomTopic}</h2>
+        </div>
+    </div>
+</section>
 
 </body>
 
+<footer>
+    <h2>Have you ever dreamed of giving up everything and living freely for a while?</h2>
+</footer>
+
 </html>
-
-
-
