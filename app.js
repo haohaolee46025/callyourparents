@@ -1,5 +1,21 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
+const renderItems = (topics) => {
+    const topicList = document.getElementById('question_text'); // 获取题目所在的元素
+    topicList.innerHTML = ""; // 清空该元素
+
+    // 随机排序数组
+    topics.sort(() => Math.random() - 0.5);
+
+    // 选择数组的第一个元素进行渲染
+    let listItem = `<h6>${topics[0].topics}</h6>`;
+    topicList.insertAdjacentHTML('beforeend', listItem); // 在题目元素中插入题目
+}
+
+
+
+
+
 
 const body = d3.select('body');
 
@@ -7,13 +23,17 @@ const body = d3.select('body');
 const clockContainer = body.insert('section', '#content')
     .attr('id', 'clock-container')
     .style('height', '400px');
+    
 
 // Create a viewport for the clock elements
 const clockViewport = clockContainer.append('div')
     .attr('id', 'clock-viewport')
     .style('width', '100%')
     .style('height', '400px')
-    .style('position', 'relative');
+    .style('position', 'sticky')
+    .style('position', '-webkit-sticky')
+    .style('top', '0')
+    .style('z-index', '1000');
 
 
 // Create horizontal line
@@ -87,10 +107,6 @@ afterblueGradient.append('stop')
 
 
 
-
-
-
-
 // Create text for the first circle's time
 const newYorkTimeText = clockViewport.append('h5')
     .classed('text', true)
@@ -130,6 +146,7 @@ function updateNewYorkTime() {
 
     circle1.attr('cx', newX);
     newYorkTimeText.style('left', `${newX - 50}px`);
+    
 }
 
 updateNewYorkTime();
@@ -141,6 +158,10 @@ window.addEventListener('resize', () => {
     svg1.attr('viewBox', `0 0 ${window.innerWidth} 300`);
     updateNewYorkTime();
 });
+
+
+
+
 
 
 
@@ -312,3 +333,22 @@ window.addEventListener('resize', () => {
     
 });
 
+window.addEventListener('scroll', function() {
+    var hero = document.getElementById('hero');
+    var scrollPosition = window.scrollY;
+
+    if (scrollPosition > 100) { // 当滚动位置超过100px时
+        hero.classList.add('hero-hidden');
+    } else {
+        hero.classList.remove('hero-hidden');
+    }
+});
+
+// JSON file
+fetch('topics.json')
+    .then(response => response.json())
+    .then(topics => {
+        console.log(topics)
+        // 调用函数
+        renderItems(topics)
+    })
