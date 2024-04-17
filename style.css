@@ -9,7 +9,7 @@
     --white-color:white;
     --light-gray:hsl(210, 2%, 80%);
     --dark-gray:#818181;
-    --accent-color:#00FFF0;
+    --accent-color:#FF5C00;
 
     /* font */
     --font-size: 16px;
@@ -23,12 +23,14 @@
 /* layout */
 
 body{
-    background-color: var(--background-color)
+    background: linear-gradient(to bottom, black, black 100%);
 
 }
 
 #hero{
+    width:100%;
     margin: 1vw;
+    margin-bottom:-3vh;
     background-color: var(--light-gray);
     padding-top: var(--font-size);
     border-radius: 20px 20px 0 0;
@@ -42,18 +44,20 @@ body{
 }
 
 hr{
+    width:100%;
     border: 0.5px solid rgb(0, 0, 0);
     margin:0px;
     }
 
 .content_grid {
+    width:100%;
     display: flex;
     flex-direction: row;
     align-items: top;
 }
 
 .grid_left{
-    width:60%;
+    width:40%;
     padding:calc(var(--font-size)*1.5);
     display: flex; /* 使用 Flexbox 布局 */
     flex-direction: column; /* 设置垂直布局 */
@@ -61,11 +65,13 @@ hr{
 }
 
 
-.grid_right{
-    width:40%;
+.grid_right {
+    width: 60%;
     border-left: 1px solid rgb(0, 0, 0);
-    padding:calc(var(--font-size)*1.5);
-    align-items: flex-start;
+    padding: calc(var(--font-size) * 1.5);
+    display: flex; /* 將容器設置為 flex 容器 */
+    flex-direction: column;
+    align-items:flex-end;
 }
 
 
@@ -80,8 +86,10 @@ h1{
     margin:calc(var(--font-size)*0);
 }
 
+
+
 h2{
-    width:50vw;
+    width:30vw;
     font-size: calc(var(--font-size)*1.5);
     color: var(--dark-gray);
     font-family: "Karla", sans-serif;
@@ -97,6 +105,7 @@ h3{
     line-height:calc(var(--font-size)*1.8);
     font-family: "Karla", sans-serif;
     text-align:right;
+    width:auto;
 
 }
 
@@ -109,6 +118,7 @@ h4{
     line-height:calc(var(--font-size)*1.5);
     font-family: "Karla", sans-serif;
     text-align:right;
+    width:40vw;
 
 }
 
@@ -134,7 +144,6 @@ h6{
     font-weight: 200;
     margin:0px;
 }
-
 
 
 /* Planets */
@@ -185,21 +194,40 @@ h5.text {
     color: var(--white-color);
 }
 
+#body_title{
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 30vh; /* 让容器铺满整个视口高度 */
+}
 
     
-.meetingtime{
-    padding:calc(var(--font-size)*1.5);
-    padding-top:calc(var(--font-size)*3);
-    padding-bottom:calc(var(--font-size)*0.5);
-    color:var(--white-color);
-    justify-content: left; /* 水平居中 */
-    text-align: left;
-    position: -webkit-sticky; /* For Safari */
+.meetingtime { 
+    padding: calc(var(--font-size) * 1.5);
+    padding-top: calc(var(--font-size) * 3);
+    padding-bottom: calc(var(--font-size) * 0.5);    
+    margin-bottom:10vh;
+    justify-content: center; /* 水平居中 */
+    text-align: center;
     position: sticky;
-    top: 0; /* 确保元素在顶部 */
     z-index: 1000; /* 确保元素处于顶层 */
-    opacity: 0.6; /* 默认透明度 */
-    width:25vw;
+    width: 60vw;
+    top: 10%; /* 设置距离顶部的距离为页面高度的 10% */
+    opacity: 100%;
+    color: white;
+    transition: opacity 1s; /* 使用过渡效果，时长为 1 秒 */
+    font-size: 20px;
+    line-height: 30px;
+}
+
+
+
+
+#concept_description{
+    text-align: left;
+    width:40vw;
+    color:var(--white-color);
+    opacity: 0.8;
 }
 
 
@@ -264,20 +292,23 @@ h5.text {
 }
 
 #closemark:hover {
-    background-color: rgba(0, 204, 255, 0.5); 
+    background-color: var(--accent-color);
     backdrop-filter: blur(10px); 
+    color:var(--background-color)
 }
 
 
 
-
+/* footer*/
 
 
 footer{
-    margin-top:10vh;
-    padding:2vw;
-    background-color: #242424;
-    position: sticky;
+    padding:20vh;
+}
+
+.footer_text{
+    color:var(--white-color);
+    opacity: 0.6;
 }
 
 
@@ -295,4 +326,85 @@ footer{
     0% { transform: translateY(0px); }
     50% { transform: translateY(-20px); }
     100% { transform: translateY(0px); }
+}
+
+
+
+/* mobile */
+
+@media  (max-width: 576px) {
+    
+    #hero{
+        width:100%;
+        background-color: var(--light-gray);
+        height: auto;
+    }
+
+    .content_grid {
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        align-items: top;
+    }
+
+    .grid_left{
+        align-items:flex-start;
+        width: 100%;
+
+    }
+    
+    
+    .grid_right {
+        width: 100%;
+        border-left: none;
+        align-items:flex-start;
+        margin-top:-30px;
+    }
+    
+
+    h1{
+        font-size: calc(var(--font-size)*3);
+        line-height:calc(var(--font-size)*4);
+        width: 100%;
+    }
+    
+    
+    
+    h2{
+        width: 100%;
+        font-size: calc(var(--font-size)*1.5);
+        color: var(--dark-gray);
+        line-height: calc(var(--font-size)*2);
+    }
+
+    h3{
+        width:100%;
+        text-align:left;
+    }
+    
+    
+    
+    h4{
+        width:100%;
+        text-align:left;
+    }
+    
+
+
+
+/* Planets Time labels and click text*/
+
+#body_title{
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    align-items: center; /* 垂直居中 */
+    height: 30vh; /* 让容器铺满整个视口高度 */
+    margin-top:-25vh;
+}
+
+footer{
+    padding:10%;
+}
+
+
 }

@@ -1,43 +1,65 @@
 import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
-const renderItems = (topics) => {
-    const topicList = document.getElementById('question_text'); // 获取题目所在的元素
-    topicList.innerHTML = ""; // 清空该元素
 
-    // 随机排序数组
+// Random strings generator
+const renderItems = (topics) => {
+    const topicList = document.getElementById('question_text'); 
+    topicList.innerHTML = ""; 
+
+    
     topics.sort(() => Math.random() - 0.5);
 
-    // 选择数组的第一个元素进行渲染
+    
     let listItem = `<h6>${topics[0].topics}</h6>`;
-    topicList.insertAdjacentHTML('beforeend', listItem); // 在题目元素中插入题目
+    topicList.insertAdjacentHTML('beforeend', listItem); 
 }
 
 
 const renderItems2 = (actions) => {
-    const actionList = document.getElementById('action_text'); // 获取题目所在的元素
-    actionList.innerHTML = ""; // 清空该元素
+    const actionList = document.getElementById('action_text'); 
+    actionList.innerHTML = ""; 
 
-    // 随机排序数组
+    
     actions.sort(() => Math.random() - 0.5);
 
-    // 选择数组的第一个元素进行渲染
+    
     let listItem = `<h5>${actions[0].actions}</h5>`;
-    actionList.insertAdjacentHTML('beforeend', listItem); // 在题目元素中插入题目
+    actionList.insertAdjacentHTML('beforeend', listItem); 
 }
 
+// JSON file
+fetch('topics.json')
+    .then(response => response.json())
+    .then(topics => {
+        console.log(topics)
+        renderItems(topics)
+    })
+
+
+fetch('actions.json')
+    .then(response => response.json())
+    .then(actions => {
+        console.log(actions)
+        renderItems2(actions)
+    })
+
+
+
+// Clock
 
 const body = d3.select('#container');
 
 // 在 body 中创建时钟容器
 const clockContainer = body.insert('section', '#content')
     .attr('id', 'clock-container')
-    .style('z-index', '999');
+    .style('z-index', '999')
+    .style('width', '100vw');
     
 
 // Create a viewport for the clock elements
 const clockViewport = clockContainer.append('div')
     .attr('id', 'clock-viewport')
-    .style('width', '100%')
+    .style('width', '100vw')
     .style('height', '400px')
     .style('position', 'sticky')
     .style('position', '-webkit-sticky')
@@ -50,9 +72,10 @@ const horizontalLine = clockViewport.append('div')
     .style('position', 'absolute')
     .style('top', '50%')
     .style('left', '0')
-    .style('width', '100%')
+    .style('width', '100vw')
     .style('height', '1px')
-    .style('background-color', '#565656');
+    .style('opacity', '0.3')
+    .style('background-color', 'white');
 
 // Initial positions and sizes
 let circleRadius = 100;
@@ -84,7 +107,7 @@ blueGradient.append('stop')
 
 blueGradient.append('stop')
     .attr('offset', '100%')
-    .attr('stop-color', '#140D64');
+    .attr('stop-color', '#030029');
 
 // Create the first circle and apply gradient fill
 const circle1 = svg1.append('circle')
@@ -112,7 +135,7 @@ afterblueGradient.append('stop')
 
 afterblueGradient.append('stop')
     .attr('offset', '100%')
-    .attr('stop-color', '#FF3333');
+    .attr('stop-color', '#B60000');
 
 
 
@@ -202,7 +225,7 @@ gradient.append('stop')
 
 gradient.append('stop')
     .attr('offset', '100%')
-    .attr('stop-color', '#39311D');
+    .attr('stop-color', '#030029');
 
 // Create the second circle and apply gradient fill
 const redCircle = svg2.append('circle')
@@ -278,15 +301,15 @@ closeMark.on('click', function() {
 
 
 
-// 添加鼠标悬停事件监听器
+// Click text mouse effect
 clickText.on('mouseover', function() {
-    // 在悬停时显示文本
+    // when stay in text
     d3.select(this).style('opacity',0.8);
 });
 
 // 添加鼠标离开事件监听器
 clickText.on('mouseout', function() {
-    // 在离开时隐藏文本
+    // when leave the text
     d3.select(this).style('opacity', 0.5);
 });
 
@@ -356,20 +379,37 @@ window.addEventListener('scroll', function() {
 });
 
 
-// JSON file
-fetch('topics.json')
-    .then(response => response.json())
-    .then(topics => {
-        console.log(topics)
-        // 调用函数
-        renderItems(topics)
-    })
+window.addEventListener('scroll', function() {
+    var meetingTime = document.querySelector('.meetingtime');
+    var positionFromTop = meetingTime.getBoundingClientRect().top;
+    var screenHeight = window.innerHeight;
+
+    // 计算滚动到达屏幕上半部 1/3 的距离
+    var scrollDistance = screenHeight / 3;
+
+    // 如果元素顶部距离小于等于滚动到达屏幕上半部 1/3 的距离，则设置 opacity 为 60%，否则为 10%
+    if (positionFromTop <= scrollDistance) {
+        meetingTime.style.opacity = 0.5; // 60%
+    } else {
+        meetingTime.style.opacity = 0.0; // 10%
+    }
+});
 
 
-fetch('actions.json')
-    .then(response => response.json())
-    .then(actions => {
-        console.log(actions)
-        // 调用函数
-        renderItems2(actions)
-    })
+// JavaScript file: script.js
+
+function updateBackground() {
+    const date = new Date();
+    const localTime = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: false, timeZone: 'America/New_York' });
+    const [hours, minutes] = localTime.split(':').map(Number);
+    const totalMinutes = hours * 60 + minutes;
+
+    if (totalMinutes >= 21 * 60 && totalMinutes <= 24 * 60) {
+        document.body.style.background = 'linear-gradient(to bottom, black, #F13535 120%)';
+    } else {
+        document.body.style.background = 'linear-gradient(to bottom, black, #240051 160%)';
+    }
+}
+
+setInterval(updateBackground, 60000); // 每分钟更新一次背景
+updateBackground(); // 立即更新一次背景
