@@ -52,14 +52,13 @@ const body = d3.select('#container');
 // 在 body 中创建时钟容器
 const clockContainer = body.insert('section', '#content')
     .attr('id', 'clock-container')
-    .style('z-index', '999')
-    .style('width', '100vw');
+    .style('z-index', '999');
     
 
 // Create a viewport for the clock elements
 const clockViewport = clockContainer.append('div')
     .attr('id', 'clock-viewport')
-    .style('width', '100vw')
+    .style('width', '100%')
     .style('height', '400px')
     .style('position', 'sticky')
     .style('position', '-webkit-sticky')
@@ -72,7 +71,7 @@ const horizontalLine = clockViewport.append('div')
     .style('position', 'absolute')
     .style('top', '50%')
     .style('left', '0')
-    .style('width', '100vw')
+    .style('width', '100%')
     .style('height', '1px')
     .style('opacity', '0.3')
     .style('background-color', 'white');
@@ -410,4 +409,18 @@ if (currentHour >= 21 || currentHour < 0) {
     if (meetingTimeElement) {
         meetingTimeElement.textContent = "Hey Dear, It's Time to Connect!";
     }
+}
+
+// 获取当前时间
+var now = new Date();
+var hour = now.getHours();
+
+// 获取ball6元素
+var ball6 = document.getElementById("ball6");
+
+// 设置ball6的飽和度
+if (currentHour >= 21 || currentHour < 0) {
+    ball6.style.opacity = "0.4"; // 设置飽和度为100%
+} else {
+    ball6.style.opacity = "0"; // 设置飽和度为0
 }

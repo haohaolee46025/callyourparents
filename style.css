@@ -29,15 +29,15 @@ body{
 
 #hero{
     position: relative;
-    width:100%;
     margin: 1vw;
     margin-bottom:-3vh;
     background-color: var(--light-gray);
     padding-top: var(--font-size);
     border-radius: 20px 20px 0 0;
     height: auto;
-    z-index: 9999; /* 设置一个较高的 z-index 值 */
+    z-index: 9998; 
     transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity:1;
 }
 
 .hero-hidden {
@@ -59,7 +59,7 @@ hr{
 }
 
 .grid_left{
-    width:40%;
+    width:50%;
     padding:calc(var(--font-size)*2);
     display: flex; /* 使用 Flexbox 布局 */
     flex-direction: column; /* 设置垂直布局 */
@@ -68,12 +68,12 @@ hr{
 
 
 .grid_right {
-    width: 60%;
+    width: 50%;
     border-left: 1px solid rgb(0, 0, 0);
     padding: calc(var(--font-size) * 2);
     display: flex; /* 將容器設置為 flex 容器 */
     flex-direction: column;
-    align-items:flex-end;
+    align-items:flex-start;
 }
 
 
@@ -106,7 +106,7 @@ h3{
     color: var(--background-color);
     line-height:calc(var(--font-size)*1.8);
     font-family: "Karla", sans-serif;
-    text-align:right;
+    text-align:left;
     width:auto;
 
 }
@@ -119,7 +119,7 @@ h4{
     font-weight: 300;
     line-height:calc(var(--font-size)*1.5);
     font-family: "Karla", sans-serif;
-    text-align:right;
+    text-align:left;
     width:40vw;
 
 }
@@ -246,7 +246,7 @@ h5.text {
     justify-content: center; /* 居中对齐 */
     align-items: center; /* 居中对齐 */
     position: fixed; /* 相对于浏览器窗口定位 */
-    z-index: 1000; /* 确保元素处于顶层 */
+    z-index: 9999; /* 确保元素处于顶层 */
     width: 60vw; /* 设置宽度为视口宽度的 60% */
     height: auto; /* 自动高度 */
     left: 50%; /* 位于屏幕水平中心 */
@@ -307,7 +307,7 @@ h5.text {
 
 
 footer{
-    margin-top:10vh;
+    margin-top:5vh;
     padding:20vh;
 }
 
@@ -344,25 +344,26 @@ footer{
     width: 300px;
     height: 300px;
     border-radius: 50%;
-    background: radial-gradient(circle, #8a7ddc, #1b006c);
+    background: radial-gradient(circle, #ec6024, #3b001a);
     position: fixed;
-    opacity: 0.3;
+    opacity: 0.25;
     top: 50%;
-    left: 80%;
-    animation: orbit 80s linear infinite; /* 每十秒繞一圈 */
+    left: 90%;
+    filter: blur(2px);
+    animation: orbit 40s linear infinite; /* 每十秒繞一圈 */
   }
 
 
   #ball2 {
-    width: 140px;
-    height: 140px;
+    width: 100px;
+    height: 100px;
     border-radius: 50%;
-    background: radial-gradient(circle, #7e5bd7, #17093c);
+    background: radial-gradient(circle, #6519c2, #17093c);
     position: fixed;
-    opacity: 0.4;
-    top: 10%;
+    opacity: 0.25;
+    top: 5%;
     left: 20%;
-    filter: blur();
+    filter: blur(1px);
     animation: orbit 20s linear infinite; /* 每十秒繞一圈 */
   }
 
@@ -370,13 +371,56 @@ footer{
     width: 500px;
     height: 500px;
     border-radius: 50%;
-    background: radial-gradient(circle, #7e5bd7, #17093c);
-    position: fixed;
-    opacity: 0.4;
+    background: radial-gradient(circle, #504e36, #000000);
+    opacity: 1;
     bottom: -20%;
-    left: -40%;
-    animation: orbit 40s linear infinite; /* 每十秒繞一圈 */
+    left: -50%;
+    animation: orbit 60s linear infinite; /* 每十秒繞一圈 */
+    display: block;
+    filter: blur(5px);
   }
+
+
+  #ball4 {
+    width: 1600px;
+    height: 100px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ffffff 20px, black);
+    opacity: 0.3;
+    bottom: 50%;
+    left: 60%;
+    animation: orbit 8s linear infinite; /* 每十秒繞一圈 */
+    display: block;
+    position: fixed;
+    filter: blur(100px);
+  }
+
+
+  #ball5 {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #1c08a1 20px, black);
+    opacity: 0.3;
+    bottom: 20%;
+    left: 10%;
+    position: fixed;
+    filter: blur(100px);
+  }
+
+  #ball6 {
+    width: 1200px;
+    height: 1200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #ff02a6 20px, black);
+    opacity: 0.3;
+    top: 25%;
+    left: 30%;
+    position: fixed;
+    filter: blur(100px);
+  }
+
+
 
 /* mobile */
 
@@ -461,5 +505,9 @@ footer{
     padding:10%;
 }
 
+
+#ball3 {
+display: none;
+  }
 
 }
