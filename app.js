@@ -131,11 +131,11 @@ const afterblueGradient = svg1.append('linearGradient')
 // Add gradient stops
 afterblueGradient.append('stop')
     .attr('offset', '0%')
-    .attr('stop-color', '#FF5C00');
+    .attr('stop-color', '#FF64B8');
 
 afterblueGradient.append('stop')
     .attr('offset', '100%')
-    .attr('stop-color', '#B60000');
+    .attr('stop-color', '#FF367E');
 
 
 
@@ -247,11 +247,11 @@ const aftergradient = svg2.append('linearGradient')
 // Add gradient stops
 aftergradient.append('stop')
     .attr('offset', '0%')
-    .attr('stop-color', '#F23232');
+    .attr('stop-color', '#F64B89');
 
 aftergradient.append('stop')
-    .attr('offset', '100%')
-    .attr('stop-color', '#B20101');
+    .attr('offset', '40%')
+    .attr('stop-color', '#FF1074');
 
 
 // Create text for the second circle's time
@@ -278,7 +278,7 @@ const clickText = svg2.append('text')
     .style('opacity',0.5)
     .style('cursor','pointer')
     .style('z-index', '999')
-    .text('click');
+    .text('connect');
 
 
 clickText.on('click', function() {
@@ -304,13 +304,13 @@ closeMark.on('click', function() {
 // Click text mouse effect
 clickText.on('mouseover', function() {
     // when stay in text
-    d3.select(this).style('opacity',0.8);
+    d3.select(this).style('opacity',1);
 });
 
 // 添加鼠标离开事件监听器
 clickText.on('mouseout', function() {
     // when leave the text
-    d3.select(this).style('opacity', 0.5);
+    d3.select(this).style('opacity', 0.6);
 });
 
 window.addEventListener('resize', () => {
@@ -385,7 +385,7 @@ window.addEventListener('scroll', function() {
     var screenHeight = window.innerHeight;
 
     // 计算滚动到达屏幕上半部 1/3 的距离
-    var scrollDistance = screenHeight / 3;
+    var scrollDistance = screenHeight / 4;
 
     // 如果元素顶部距离小于等于滚动到达屏幕上半部 1/3 的距离，则设置 opacity 为 60%，否则为 10%
     if (positionFromTop <= scrollDistance) {
@@ -396,20 +396,18 @@ window.addEventListener('scroll', function() {
 });
 
 
-// JavaScript file: script.js
 
-function updateBackground() {
-    const date = new Date();
-    const localTime = date.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: false, timeZone: 'America/New_York' });
-    const [hours, minutes] = localTime.split(':').map(Number);
-    const totalMinutes = hours * 60 + minutes;
 
-    if (totalMinutes >= 21 * 60 && totalMinutes <= 24 * 60) {
-        document.body.style.background = 'linear-gradient(to bottom, black, #F13535 120%)';
-    } else {
-        document.body.style.background = 'linear-gradient(to bottom, black, #240051 160%)';
+
+// Get current time
+const currentTime = new Date();
+const currentHour = currentTime.getHours();
+
+// Check if current time is between 9 PM and midnight
+if (currentHour >= 21 || currentHour < 0) {
+    // Set the content of the meetingtime element to "It's time to meet!"
+    const meetingTimeElement = document.querySelector('.meetingtime');
+    if (meetingTimeElement) {
+        meetingTimeElement.textContent = "Hey Dear, It's Time to Connect!";
     }
 }
-
-setInterval(updateBackground, 60000); // 每分钟更新一次背景
-updateBackground(); // 立即更新一次背景

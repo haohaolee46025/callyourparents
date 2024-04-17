@@ -7,9 +7,9 @@
 :root {
     --background-color: #000000;
     --white-color:white;
-    --light-gray:hsl(210, 2%, 80%);
+    --light-gray:hsl(0, 0%, 89%);
     --dark-gray:#818181;
-    --accent-color:#FF5C00;
+    --accent-color:#FF7979;
 
     /* font */
     --font-size: 16px;
@@ -28,6 +28,7 @@ body{
 }
 
 #hero{
+    position: relative;
     width:100%;
     margin: 1vw;
     margin-bottom:-3vh;
@@ -35,6 +36,7 @@ body{
     padding-top: var(--font-size);
     border-radius: 20px 20px 0 0;
     height: auto;
+    z-index: 9999; /* 设置一个较高的 z-index 值 */
     transition: transform 0.5s ease, opacity 0.5s ease;
 }
 
@@ -58,7 +60,7 @@ hr{
 
 .grid_left{
     width:40%;
-    padding:calc(var(--font-size)*1.5);
+    padding:calc(var(--font-size)*2);
     display: flex; /* 使用 Flexbox 布局 */
     flex-direction: column; /* 设置垂直布局 */
     align-items: flex-start; /* 设置子元素水平向左对齐 */
@@ -68,7 +70,7 @@ hr{
 .grid_right {
     width: 60%;
     border-left: 1px solid rgb(0, 0, 0);
-    padding: calc(var(--font-size) * 1.5);
+    padding: calc(var(--font-size) * 2);
     display: flex; /* 將容器設置為 flex 容器 */
     flex-direction: column;
     align-items:flex-end;
@@ -126,7 +128,8 @@ h4{
 h5{
     color:var(--accent-color);
     text-align: center;
-    font-family: "Saira Condensed", sans-serif;
+    font-family: "Karla", sans-serif;
+    
     font-size: 30px;
     font-weight: 600;
     margin-top: 5px;
@@ -148,7 +151,7 @@ h6{
 
 /* Planets */
 
-
+#container{margin-top: -4vh;}
 
 #svg1{animation: float 10s ease-in-out infinite;
 
@@ -198,13 +201,13 @@ h5.text {
     display: flex;
     justify-content: center; /* 水平居中 */
     align-items: center; /* 垂直居中 */
-    height: 30vh; /* 让容器铺满整个视口高度 */
+    height: 25vh; /* 让容器铺满整个视口高度 */
 }
 
     
 .meetingtime { 
     padding: calc(var(--font-size) * 1.5);
-    padding-top: calc(var(--font-size) * 3);
+    padding-top: calc(var(--font-size) * 2);
     padding-bottom: calc(var(--font-size) * 0.5);    
     margin-bottom:10vh;
     justify-content: center; /* 水平居中 */
@@ -216,8 +219,9 @@ h5.text {
     opacity: 100%;
     color: white;
     transition: opacity 1s; /* 使用过渡效果，时长为 1 秒 */
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 40px;
+    line-height: 50px;
+    opacity: 0%;
 }
 
 
@@ -303,6 +307,7 @@ h5.text {
 
 
 footer{
+    margin-top:10vh;
     padding:20vh;
 }
 
@@ -329,6 +334,49 @@ footer{
 }
 
 
+/* Balls */
+@keyframes orbit {
+    0% { transform: rotate(0deg) translateX(-50%) translateY(-50%); }
+    100% { transform: rotate(360deg) translateX(-50%) translateY(-50%); }
+  }
+  
+  #ball {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #8a7ddc, #1b006c);
+    position: fixed;
+    opacity: 0.3;
+    top: 50%;
+    left: 80%;
+    animation: orbit 80s linear infinite; /* 每十秒繞一圈 */
+  }
+
+
+  #ball2 {
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #7e5bd7, #17093c);
+    position: fixed;
+    opacity: 0.4;
+    top: 10%;
+    left: 20%;
+    filter: blur();
+    animation: orbit 20s linear infinite; /* 每十秒繞一圈 */
+  }
+
+  #ball3 {
+    width: 500px;
+    height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #7e5bd7, #17093c);
+    position: fixed;
+    opacity: 0.4;
+    bottom: -20%;
+    left: -40%;
+    animation: orbit 40s linear infinite; /* 每十秒繞一圈 */
+  }
 
 /* mobile */
 
@@ -400,6 +448,13 @@ footer{
     align-items: center; /* 垂直居中 */
     height: 30vh; /* 让容器铺满整个视口高度 */
     margin-top:-25vh;
+}
+
+
+
+.meetingtime { 
+    font-size: 20px;
+    line-height: 30px;
 }
 
 footer{

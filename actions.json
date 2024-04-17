@@ -1,36 +1,36 @@
 [
     {
-        "actions": "Ask Dad"
+        "actions": "Hi Dad,"
     },
     {
-        "actions": "Ask Mom"
+        "actions": "Hi Mom,"
     },
     {
-        "actions": "Ask Ping-Hao"
+        "actions": "Hi Ping-Hao,"
     },
     {
-        "actions": "Ask Ching"
+        "actions": "Hi Ching,"
     },
     {
-        "actions": "Ask Yao"
+        "actions": "Hi Yao,"
     },
     {
-        "actions": "Ask Andy"
+        "actions": "Hi Andy,"
     },
     {
-        "actions": "Ask Sung"
+        "actions": "Hi Sung,"
     },
 
     {
-        "actions": "Ask Willy"
+        "actions": "Hi Willy,"
     },
     {
-        "actions": "Ask Kid"
+        "actions": "Hi Kid,"
     },
     {
-        "actions": "Ask Emily"
+        "actions": "Hi Emily,"
     },
     {
-        "actions": "Ask Lai"
+        "actions": "Hi Lai,"
     }
 ]
