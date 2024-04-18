@@ -30,7 +30,7 @@ body{
 #hero{
     margin: 1vw;
     background-color: var(--light-gray);
-    padding-top: 10px;
+    padding-top: var(--font-size);
     border-radius: 20px 20px 0 0;
     height: auto;
     transition: transform 0.5s ease, opacity 0.5s ease;
@@ -54,7 +54,7 @@ hr{
 
 .grid_left{
     width:60%;
-    padding:2vw;
+    padding:calc(var(--font-size)*1.5);
     display: flex; /* 使用 Flexbox 布局 */
     flex-direction: column; /* 设置垂直布局 */
     align-items: flex-start; /* 设置子元素水平向左对齐 */
@@ -64,7 +64,7 @@ hr{
 .grid_right{
     width:40%;
     border-left: 1px solid rgb(0, 0, 0);
-    padding:2vw;
+    padding:calc(var(--font-size)*1.5);
     align-items: flex-start;
 }
 
@@ -85,7 +85,7 @@ h2{
     color: var(--dark-gray);
     font-family: "Karla", sans-serif;
     font-weight: 600;
-    margin-top:3px;
+    margin-top:calc(var(--font-size)*1.2);
     line-height: calc(var(--font-size)*2.2);
 
 }
@@ -111,15 +111,27 @@ h4{
 
 }
 
+
+h5{
+    color:var(--accent-color);
+    text-align: center;
+    font-family: "Saira Condensed", sans-serif;
+    font-size: 30px;
+    font-weight: 600;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+
 h6{
     font-size: calc(var(--font-size)*1.5);
     color: var(--accent-color);
     font-family: "Karla", sans-serif;
     font-weight: 600;
-    margin-top:3px;
     line-height: calc(var(--font-size)*2.2);
     text-align: center;
     font-weight: 200;
+    margin:0px;
 }
 
 
@@ -163,67 +175,75 @@ h6{
 h5.text {
     font-family: 'Source Code Pro', monospace;
     font-size: 16px; 
-    color: white;
+    color: var(--white-color);
 }
 
 .click-text{
     font-family: "Karla", sans-serif;
     font-size: 14px; 
-    color: white;
+    color: var(--white-color);
 }
 
-#content{
+
+    
+.meetingtime{
+    padding:calc(var(--font-size)*1.5);
+    padding-top:calc(var(--font-size)*5);
+    padding-bottom:calc(var(--font-size)*0.5);
+    color:var(--white-color);
+    justify-content: left; /* 水平居中 */
+    text-align: left;
     position: -webkit-sticky; /* For Safari */
     position: sticky;
     top: 0; /* 确保元素在顶部 */
     z-index: 1000; /* 确保元素处于顶层 */
+    opacity: 1; /* 默认透明度 */
+    width:25vw;
 }
 
 
-#testingtitle {    position: -webkit-sticky; /* For Safari */
-    position: sticky;
-    top: 0; /* 确保元素在顶部 */
-    bottom: 0;
-    z-index: 1000; /* 确保元素处于顶层 */
-}
 
 /* Quesstion card */
 
+
+
 #questioncard {
     display: flex;
-    justify-content: center; /* 水平居中 */
+    flex-direction: column; 
+    justify-content: center; /* 居中对齐 */
+    align-items: center; /* 居中对齐 */
+    position: fixed; /* 相对于浏览器窗口定位 */
+    z-index: 1000; /* 确保元素处于顶层 */
+    width: 60vw; /* 设置宽度为视口宽度的 60% */
+    height: auto; /* 自动高度 */
+    left: 50%; /* 位于屏幕水平中心 */
+    top: 50%; /* 位于屏幕垂直中心 */
+    transform: translate(-50%, -50%); /* 使用transform来将元素水平和垂直居中 */
 }
+
+.todaychallenge{
+    font-weight: 200;
+    color:var(--accent-color);
+    font-size:18px ;
+    text-align: center;
+    margin-bottom:2vh;
+    margin-top:0vh; }
 
 
 #question {
-    width: 300px;
-    height:400px;
     background-color: rgba(0, 0, 0, 0.7); 
     border: 1px solid var(--accent-color);
-    padding-top: 10px;
     border-radius: 10px;
-    display: flex;
     flex-direction: column; 
-    justify-content: center; 
-    align-items: center;
     padding-right:10vw;
     padding-left:10vw;
-    padding-top:10vh;
+    padding-top: 10vh;
+    padding-bottom:10vh;
     z-index: 9999; 
     backdrop-filter: blur(10px); 
     display: none;
-    margin-top:-60vh;
-    position: fixed;
 }
 
-.question_texttitle{
-    color:var(--accent-color);
-    text-align: center;
-    font-family: "Saira Condensed", sans-serif;
-    font-size: 30px;
-    margin-bottom:24px;
-    font-weight: 600;
-}
 
 
 #closemark {
@@ -246,6 +266,10 @@ h5.text {
     background-color: rgba(0, 204, 255, 0.5); 
     backdrop-filter: blur(10px); 
 }
+
+
+
+
 
 
 footer{

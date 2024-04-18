@@ -13,16 +13,25 @@ const renderItems = (topics) => {
 }
 
 
+const renderItems2 = (actions) => {
+    const actionList = document.getElementById('action_text'); // 获取题目所在的元素
+    actionList.innerHTML = ""; // 清空该元素
+
+    // 随机排序数组
+    actions.sort(() => Math.random() - 0.5);
+
+    // 选择数组的第一个元素进行渲染
+    let listItem = `<h5>${actions[0].actions}</h5>`;
+    actionList.insertAdjacentHTML('beforeend', listItem); // 在题目元素中插入题目
+}
 
 
-
-
-const body = d3.select('body');
+const body = d3.select('#container');
 
 // 在 body 中创建时钟容器
 const clockContainer = body.insert('section', '#content')
     .attr('id', 'clock-container')
-    .style('height', '400px');
+    .style('z-index', '999');
     
 
 // Create a viewport for the clock elements
@@ -33,7 +42,7 @@ const clockViewport = clockContainer.append('div')
     .style('position', 'sticky')
     .style('position', '-webkit-sticky')
     .style('top', '0')
-    .style('z-index', '1000');
+    .style('z-index', '999');
 
 
 // Create horizontal line
@@ -46,7 +55,7 @@ const horizontalLine = clockViewport.append('div')
     .style('background-color', '#565656');
 
 // Initial positions and sizes
-let circleRadius = 80;
+let circleRadius = 100;
 let centerY = horizontalLine.node().offsetTop + 0.5;
 let initialX = 60;
 let finalX = window.innerWidth / 2;
@@ -58,7 +67,7 @@ const svg1 = clockViewport.append('svg')
     .style('top', '0')
     .style('left', '0')
     .attr('preserveAspectRatio', 'xMidYMid meet')
-    .attr('viewBox', `0 0 ${window.innerWidth} 300`);
+    .attr('viewBox', `0 0 ${window.innerWidth} 500`);
 
 //Create a linear gradient for the first circle
 const blueGradient = svg1.append('linearGradient')
@@ -166,7 +175,7 @@ window.addEventListener('resize', () => {
 
 
 // Second circle and related elements
-let redCircleRadius = 50;
+let redCircleRadius = 60;
 let initialTaiwanX = window.innerWidth - 60 - redCircleRadius;
 
 // Create SVG for the second circle
@@ -239,11 +248,13 @@ const clickText = svg2.append('text')
     .attr('y', centerY)
     .attr('text-anchor', 'middle')
     .attr('dominant-baseline', 'middle')
-    .style('fill', '#FFA9A9')
-    .style('font-size', '14px')
+    .style('fill', '#ffffff')
+    .style('font-size', '18px')
+    .style('padding', '6px')
     .style('display', 'grid') // Initially hidden
-    .style('opacity',0)
+    .style('opacity',0.5)
     .style('cursor','pointer')
+    .style('z-index', '999')
     .text('click');
 
 
@@ -270,13 +281,13 @@ closeMark.on('click', function() {
 // 添加鼠标悬停事件监听器
 clickText.on('mouseover', function() {
     // 在悬停时显示文本
-    d3.select(this).style('opacity',1);
+    d3.select(this).style('opacity',0.8);
 });
 
 // 添加鼠标离开事件监听器
 clickText.on('mouseout', function() {
     // 在离开时隐藏文本
-    d3.select(this).style('opacity', 0);
+    d3.select(this).style('opacity', 0.5);
 });
 
 window.addEventListener('resize', () => {
@@ -337,12 +348,13 @@ window.addEventListener('scroll', function() {
     var hero = document.getElementById('hero');
     var scrollPosition = window.scrollY;
 
-    if (scrollPosition > 100) { // 当滚动位置超过100px时
+    if (scrollPosition > 50) { // 当滚动位置超过100px时
         hero.classList.add('hero-hidden');
     } else {
         hero.classList.remove('hero-hidden');
     }
 });
+
 
 // JSON file
 fetch('topics.json')
@@ -351,4 +363,13 @@ fetch('topics.json')
         console.log(topics)
         // 调用函数
         renderItems(topics)
+    })
+
+
+fetch('actions.json')
+    .then(response => response.json())
+    .then(actions => {
+        console.log(actions)
+        // 调用函数
+        renderItems2(actions)
     })
