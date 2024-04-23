@@ -438,6 +438,8 @@ footer {
     border-radius: 50%;
     background: radial-gradient(circle, #504e36, #000000);
     opacity: 1;
+    top: 40%;
+    left: -40%;
     animation: orbit 60s linear infinite; /* 每十秒繞一圈 */
     display: block;
     filter: blur(5px);
@@ -521,7 +523,7 @@ footer {
 
     h1{
         font-size: calc(var(--font-size)*3);
-        line-height:var(--font-size);
+        line-height:calc(var(--font-size)*4);
         width: 100%;
     }
     
