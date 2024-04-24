@@ -27,7 +27,7 @@ const renderItems2 = (actions) => {
     actionList.insertAdjacentHTML('beforeend', listItem); 
 }
 
-// JSON file
+// Import text JSON file
 fetch('topics.json')
     .then(response => response.json())
     .then(topics => {
@@ -43,19 +43,19 @@ fetch('actions.json')
         renderItems2(actions)
     })
 
-
+/////////////////////////////////////////////////////////////////
 
 // Clock
 
 const body = d3.select('#container');
 
-// 在 body 中创建时钟容器
+// create a contrainer 
 const clockContainer = body.insert('section', '#content')
     .attr('id', 'clock-container')
     .style('z-index', '999');
     
 
-// Create a viewport for the clock elements
+// Create a viewport for the clock
 const clockViewport = clockContainer.append('div')
     .attr('id', 'clock-viewport')
     .style('width', '100%')
@@ -82,7 +82,7 @@ let centerY = horizontalLine.node().offsetTop + 0.5;
 let initialX = 60;
 let finalX = window.innerWidth / 2;
 
-// Create SVG for the first circle
+// First circle
 const svg1 = clockViewport.append('svg')
     .attr('id', 'svg1')
     .style('position', 'absolute')
@@ -91,7 +91,7 @@ const svg1 = clockViewport.append('svg')
     .attr('preserveAspectRatio', 'xMidYMid meet')
     .attr('viewBox', `0 0 ${window.innerWidth} 500`);
 
-//Create a linear gradient for the first circle
+//A gradient for the first circle
 const blueGradient = svg1.append('linearGradient')
     .attr('id', 'blueGradient')
     .attr('x1', '0%')
@@ -115,7 +115,7 @@ const circle1 = svg1.append('circle')
     .attr('r', circleRadius)
     .style('fill', 'url(#blueGradient)')
     .style('opacity', 1)
-    .classed('rotate', true); // Apply rotation class here
+    .classed('rotate', true); 
 
 
 
@@ -148,6 +148,7 @@ const newYorkTimeText = clockViewport.append('h5')
     .style('text-align', 'center')
     .style('width', '80px')
     .style('left', `${initialX - 50 + circleRadius}px`);
+
 
 // Update New York time
 function updateNewYorkTime() {
@@ -192,7 +193,7 @@ window.addEventListener('resize', () => {
 
 
 
-
+/////////////////////////////////////////////////////////////////
 
 
 
@@ -235,7 +236,7 @@ const redCircle = svg2.append('circle')
     .style('opacity', 1);
 
 
-// Create a after linear gradient for the second circle
+// Create a after gradient for the second circle
 const aftergradient = svg2.append('linearGradient')
     .attr('id', 'afterredGradient')
     .attr('x1', '0%')
@@ -252,8 +253,10 @@ aftergradient.append('stop')
     .attr('offset', '40%')
     .attr('stop-color', '#FF1074');
 
+    
+/////////////////////////////////////////////////////////////////
 
-// Create text for the second circle's time
+// Create text the second circle and click function
 const taiwanTimeText = clockViewport.append('h5')
     .classed('text', true)
     .style('position', 'absolute')
@@ -262,7 +265,7 @@ const taiwanTimeText = clockViewport.append('h5')
     .style('color', 'white')
     .style('text-align', 'center')
     .style('width', '80px')
-    .style('left', `${initialTaiwanX - 50 + redCircleRadius}px`); // Adjusted for centering
+    .style('left', `${initialTaiwanX - 50 + redCircleRadius}px`); 
 
 const clickText = svg2.append('text')
     .classed('click-text', true)
@@ -273,7 +276,7 @@ const clickText = svg2.append('text')
     .style('fill', '#ffffff')
     .style('font-size', '18px')
     .style('padding', '6px')
-    .style('display', 'grid') // Initially hidden
+    .style('display', 'grid') 
     .style('opacity',0.5)
     .style('cursor','pointer')
     .style('z-index', '999')
@@ -298,17 +301,13 @@ closeMark.on('click', function() {
     questionDiv.style('display', 'none');
 });
 
-
-
-// Click text mouse effect
+// when mouse on
 clickText.on('mouseover', function() {
-    // when stay in text
     d3.select(this).style('opacity',1);
 });
 
-// 添加鼠标离开事件监听器
+// when mouse left
 clickText.on('mouseout', function() {
-    // when leave the text
     d3.select(this).style('opacity', 0.6);
 });
 
@@ -350,7 +349,7 @@ function updateTaiwanTime() {
     }
 
     redCircle.attr('cx', newX);
-    taiwanTimeText.style('left', `${newX - 50}px`); // Adjusted for centering
+    taiwanTimeText.style('left', `${newX - 50}px`); 
 }
 
 updateTaiwanTime();
@@ -361,10 +360,11 @@ window.addEventListener('resize', () => {
     initialTaiwanX = window.innerWidth - 60 - redCircleRadius;
     svg2.attr('viewBox', `0 0 ${window.innerWidth} 300`);
     updateTaiwanTime();
-
-
-    
 });
+
+
+
+
 
 // header animation
 
@@ -395,8 +395,6 @@ window.addEventListener('scroll', function() {
         meetingTime.style.opacity = 0.0; 
     }
 });
-
-
 
 
 
@@ -434,7 +432,7 @@ window.addEventListener('scroll', function() {
     var footerPosition = footer.getBoundingClientRect();
     var windowHeight = window.innerHeight;
 
-    // 当footer进入视窗时，增加透明度和飽和度
+
     if (footerPosition.top < windowHeight) {
         footer.style.opacity = '0.8';
         footer.style.filter = 'saturate(1)';

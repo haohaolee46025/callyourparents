@@ -1,36 +1,45 @@
 [
     {
-        "actions": "Hi Dad,"
+        "actions": "Dad"
     },
     {
-        "actions": "Hi Mom,"
+        "actions": "Mom"
     },
     {
-        "actions": "Hi Ping-Hao,"
+        "actions": "Ping-Hao"
     },
     {
-        "actions": "Hi Ching,"
+        "actions": "Ching"
     },
     {
-        "actions": "Hi Yao,"
+        "actions": "Yao"
     },
     {
-        "actions": "Hi Andy,"
+        "actions": "Andy"
     },
     {
-        "actions": "Hi Sung,"
+        "actions": "Sung"
     },
 
     {
-        "actions": "Hi Willy,"
+        "actions": "Willy"
     },
     {
-        "actions": "Hi Kid,"
+        "actions": "Kid"
     },
     {
-        "actions": "Hi Emily,"
+        "actions": "Emily"
     },
     {
-        "actions": "Hi Lai,"
+        "actions": "Xavier"
+    },
+    {
+        "actions": "Eugene"
+    },
+    {
+        "actions": "John"
+    },
+    {
+        "actions": "Chris"
     }
 ]
