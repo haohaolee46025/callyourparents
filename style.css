@@ -438,7 +438,7 @@ footer {
     border-radius: 50%;
     background: radial-gradient(circle, #504e36, #000000);
     opacity: 1;
-    top: 40%;
+    top: 30%;
     left: -40%;
     animation: orbit 60s linear infinite; /* 每十秒繞一圈 */
     display: block;
