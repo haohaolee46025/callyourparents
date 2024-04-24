@@ -252,7 +252,17 @@ h5.text {
 
 /* Quesstion card */
 
-
+.blur{
+    height: 100vh;
+    width:100vw;
+    top:0;
+    z-index: 9998; 
+    position: fixed;
+    background-color: #000000;
+    backdrop-filter: blur(1000px); 
+    opacity: 0.9;
+    display: none;
+}
 
 #questioncard {
     display: flex;
@@ -278,7 +288,7 @@ h5.text {
 
 
 #question {
-    background-color: rgba(0, 0, 0, 0.7); 
+    background-color: rgba(0, 0, 0, 1); 
     border: 1px solid var(--accent-color);
     border-radius: 10px;
     flex-direction: column; 
@@ -287,8 +297,7 @@ h5.text {
     padding-top: 10vh;
     padding-bottom:10vh;
     z-index: 9999; 
-    backdrop-filter: blur(10px); 
-    display: none;
+    backdrop-filter: blur(30px); 
 }
 
 
@@ -323,7 +332,7 @@ h5.text {
 
 footer {
     margin: 1vw;
-    margin-top: -20vh;
+    margin-top: 40vh;
     margin-bottom: 6vh;
     border-radius: 0px 0px 20px 20px;
     border: 1px solid;
@@ -354,6 +363,7 @@ footer {
     width: 40%;
     padding:calc(var(--font-size)*2);
     flex-direction: column; 
+    align-items: top;
 }
 
 .grid_footer_right_1{
@@ -363,6 +373,7 @@ footer {
     flex-direction: column;
     border-left: 1px solid;
     border-color: var(--light-gray);
+    align-items: top;
 }
 
 
@@ -406,8 +417,8 @@ footer {
   }
   
   #ball {
-    width: 300px;
-    height: 300px;
+    width: 240px;
+    height: 240px;
     border-radius: 50%;
     background: radial-gradient(circle, #ec6024, #3b001a);
     position: fixed;
@@ -427,22 +438,24 @@ footer {
     position: fixed;
     opacity: 0.25;
     top: 5%;
-    left: 20%;
+    right: 20%;
     filter: blur(1px);
     animation: orbit 20s linear infinite; /* 每十秒繞一圈 */
   }
 
   #ball3 {
-    width: 400px;
-    height: 400px;
+    width: 600px;
+    height: 600px;
     border-radius: 50%;
     background: radial-gradient(circle, #504e36, #000000);
     opacity: 1;
-    top: 30%;
-    left: -40%;
+    top: 60%;
+    left: -50%;
     animation: orbit 60s linear infinite; /* 每十秒繞一圈 */
     display: block;
     filter: blur(5px);
+    margin-right:30vw;
+    position: absolute;
   }
 
 
@@ -484,6 +497,19 @@ footer {
     position: fixed;
     filter: blur(100px);
   }
+
+
+/* ipad */
+
+@media  (max-width: 800px) {
+    #ball3 {
+        width:600px;
+        height:600px;
+        left: -100%;
+      }
+    
+
+}
 
 
 
@@ -566,9 +592,11 @@ footer {
 .meetingtime { 
     font-size: 26x;
     line-height: 48px;
+    margin-bottom: 20vh;
 }
 
 footer{
+    margin-top:30vh;
     background-color: none;
     height: auto;
 }
@@ -595,13 +623,16 @@ footer{
 
 .grid_footer_left_1{
     width:100%;
-    margin-bottom:30px;
+    margin-bottom:0px;
 }
 
 
 
 
 #ball3 {
+    width: 400px;
+    height: 400px;
+    left: -220%;
   }
 
 }

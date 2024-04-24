@@ -281,7 +281,7 @@ const clickText = svg2.append('text')
 
 
 clickText.on('click', function() {
-    const contentSection = d3.select('#question');
+    const contentSection = d3.select('.blur');
     const currentState = contentSection.style('display');
     if (currentState === 'none') {
         contentSection.style('display', 'flex');
@@ -294,7 +294,7 @@ clickText.on('click', function() {
 const closeMark = d3.select('#closemark');
 
 closeMark.on('click', function() {
-    const questionDiv = d3.select('#question');
+    const questionDiv = d3.select('.blur');
     questionDiv.style('display', 'none');
 });
 
