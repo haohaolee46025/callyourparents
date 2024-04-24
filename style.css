@@ -122,6 +122,7 @@ h4{
     font-family: "Karla", sans-serif;
     text-align:left;
     width:100%;
+    margin:0;
 
 }
 
@@ -271,8 +272,8 @@ h5.text {
     align-items: center; 
     position: fixed; 
     z-index: 9999; 
-    width: 60vw; 
-    height: auto; 
+    width: 50%; 
+    height: 50%; 
     left: 50%; 
     top: 50%; 
     transform: translate(-50%, -50%); 
@@ -353,6 +354,7 @@ footer {
 }
 
 
+
 .content_footer_grid_1{
     border-color: var(--light-gray);
     width: 100%;
@@ -364,6 +366,7 @@ footer {
     padding:calc(var(--font-size)*2);
     flex-direction: column; 
     align-items: top;
+    text-align: top;
 }
 
 .grid_footer_right_1{
