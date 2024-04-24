@@ -366,31 +366,33 @@ window.addEventListener('resize', () => {
     
 });
 
+// header animation
+
 window.addEventListener('scroll', function() {
     var hero = document.getElementById('hero');
     var scrollPosition = window.scrollY;
 
-    if (scrollPosition > 50) { // 当滚动位置超过100px时
+    if (scrollPosition > 50) { 
         hero.classList.add('hero-hidden');
     } else {
         hero.classList.remove('hero-hidden');
     }
 });
 
+// Meet time text animation
 
 window.addEventListener('scroll', function() {
     var meetingTime = document.querySelector('.meetingtime');
     var positionFromTop = meetingTime.getBoundingClientRect().top;
     var screenHeight = window.innerHeight;
 
-    // 计算滚动到达屏幕上半部 1/3 的距离
     var scrollDistance = screenHeight / 4;
 
-    // 如果元素顶部距离小于等于滚动到达屏幕上半部 1/3 的距离，则设置 opacity 为 60%，否则为 10%
+ 
     if (positionFromTop <= scrollDistance) {
-        meetingTime.style.opacity = 0.5; // 60%
+        meetingTime.style.opacity = 0.5; 
     } else {
-        meetingTime.style.opacity = 0.0; // 10%
+        meetingTime.style.opacity = 0.0; 
     }
 });
 
@@ -398,29 +400,43 @@ window.addEventListener('scroll', function() {
 
 
 
-// Get current time
+// change string
 const currentTime = new Date();
 const currentHour = currentTime.getHours();
 
-// Check if current time is between 9 PM and midnight
+
 if (currentHour >= 21 || currentHour < 0) {
-    // Set the content of the meetingtime element to "It's time to meet!"
+    
     const meetingTimeElement = document.querySelector('.meetingtime');
     if (meetingTimeElement) {
         meetingTimeElement.textContent = "Hey Dear, It's Time to Connect!";
     }
 }
 
-// 获取当前时间
+// pink lighting animation
 var now = new Date();
 var hour = now.getHours();
 
-// 获取ball6元素
-var ball6 = document.getElementById("ball6");
 
-// 设置ball6的飽和度
+var ball6 = document.getElementById("pink_lighting");
+
+
 if (currentHour >= 21 || currentHour < 0) {
-    ball6.style.opacity = "0.4"; // 设置飽和度为100%
+    ball6.style.opacity = "0.4"; 
 } else {
-    ball6.style.opacity = "0"; // 设置飽和度为0
+    ball6.style.opacity = "0"; 
 }
+
+// footer animation
+
+window.addEventListener('scroll', function() {
+    var footer = document.querySelector('footer');
+    var footerPosition = footer.getBoundingClientRect();
+    var windowHeight = window.innerHeight;
+
+    // 当footer进入视窗时，增加透明度和飽和度
+    if (footerPosition.top < windowHeight) {
+        footer.style.opacity = '0.8';
+        footer.style.filter = 'saturate(1)';
+    }
+});

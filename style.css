@@ -84,14 +84,15 @@ hr{
 h1{
     font-family: "Saira Condensed", sans-serif;
     font-size: calc(var(--font-size)*5);
-    line-height:calc(var(--font-size)*6);
+    line-height:calc(var(--font-size)*5);
     margin:calc(var(--font-size)*0);
+    letter-spacing: 3px;
 }
 
 
 
 h2{
-    width:30vw;
+    width:70%;
     font-size: calc(var(--font-size)*1.5);
     color: var(--dark-gray);
     font-family: "Karla", sans-serif;
@@ -107,7 +108,7 @@ h3{
     line-height:calc(var(--font-size)*1.8);
     font-family: "Karla", sans-serif;
     text-align:left;
-    width:auto;
+    width:100%;
 
 }
 
@@ -120,7 +121,7 @@ h4{
     line-height:calc(var(--font-size)*1.5);
     font-family: "Karla", sans-serif;
     text-align:left;
-    width:40vw;
+    width:100%;
 
 }
 
@@ -148,6 +149,19 @@ h6{
     margin:0px;
 }
 
+a{  font-size:calc(var(--font-size)*1.2);
+    color: var(--background-color);
+    line-height:calc(var(--font-size)*1.8);
+    font-family: "Karla", sans-serif;
+    text-align:left;
+    width:auto;
+    text-decoration: none;
+}
+
+a:hover {
+    font-weight: 500;
+    color:var(--accent-color);
+}
 
 /* Planets */
 
@@ -243,15 +257,15 @@ h5.text {
 #questioncard {
     display: flex;
     flex-direction: column; 
-    justify-content: center; /* 居中对齐 */
-    align-items: center; /* 居中对齐 */
-    position: fixed; /* 相对于浏览器窗口定位 */
-    z-index: 9999; /* 确保元素处于顶层 */
-    width: 60vw; /* 设置宽度为视口宽度的 60% */
-    height: auto; /* 自动高度 */
-    left: 50%; /* 位于屏幕水平中心 */
-    top: 50%; /* 位于屏幕垂直中心 */
-    transform: translate(-50%, -50%); /* 使用transform来将元素水平和垂直居中 */
+    justify-content: center; 
+    align-items: center; 
+    position: fixed; 
+    z-index: 9999; 
+    width: 60vw; 
+    height: auto; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-50%, -50%); 
 }
 
 .todaychallenge{
@@ -303,18 +317,69 @@ h5.text {
 
 
 
+
 /* footer*/
 
 
-footer{
-    margin-top:5vh;
-    padding:20vh;
+footer {
+    margin: 1vw;
+    margin-top: -20vh;
+    margin-bottom: 6vh;
+    border-radius: 0px 0px 20px 20px;
+    border: 1px solid;
+    border-color: var(--light-gray);
+    opacity: 0; /* 初始透明度为0 */
+    top: 180%;
+    position: relative;
+    filter: saturate(0.8); /* 初始飽和度为1 */
+    transition: opacity 2s, filter 1.5s; /* 添加过渡效果 */
 }
 
 .footer_text{
     color:var(--white-color);
-    opacity: 0.6;
+    opacity: 1;
+    margin-bottom:12px;
+    text-align: left;
+    width:100%;
 }
+
+
+.content_footer_grid_1{
+    border-color: var(--light-gray);
+    width: 100%;
+    display: flex;
+    flex-direction: row;}
+
+.grid_footer_left_1{
+    width: 40%;
+    padding:calc(var(--font-size)*2);
+    flex-direction: column; 
+}
+
+.grid_footer_right_1{
+    width: 60%;
+    padding:calc(var(--font-size)*2);
+    display: flex; 
+    flex-direction: column;
+    border-left: 1px solid;
+    border-color: var(--light-gray);
+}
+
+
+.content_footer_grid_2{
+    border-top: 1px solid;
+    padding:var(--font-size);
+    padding-left:calc(var(--font-size)*2);
+    border-color: var(--light-gray);
+    width: auto;
+    display: flex;
+    flex-direction: row;}
+
+
+
+
+
+
 
 
 /* animation*/
@@ -368,20 +433,18 @@ footer{
   }
 
   #ball3 {
-    width: 500px;
-    height: 500px;
+    width: 400px;
+    height: 400px;
     border-radius: 50%;
     background: radial-gradient(circle, #504e36, #000000);
     opacity: 1;
-    bottom: -20%;
-    left: -50%;
     animation: orbit 60s linear infinite; /* 每十秒繞一圈 */
     display: block;
     filter: blur(5px);
   }
 
 
-  #ball4 {
+  #white_lighting {
     width: 1600px;
     height: 100px;
     border-radius: 50%;
@@ -408,7 +471,7 @@ footer{
     filter: blur(100px);
   }
 
-  #ball6 {
+  #pink_lighting {
     width: 1200px;
     height: 1200px;
     border-radius: 50%;
@@ -426,8 +489,10 @@ footer{
 
 @media  (max-width: 576px) {
     
+
+    body{
+        align-items: center;}
     #hero{
-        width:100%;
         background-color: var(--light-gray);
         height: auto;
     }
@@ -456,7 +521,7 @@ footer{
 
     h1{
         font-size: calc(var(--font-size)*3);
-        line-height:calc(var(--font-size)*4);
+        line-height:var(--font-size);
         width: 100%;
     }
     
@@ -497,17 +562,44 @@ footer{
 
 
 .meetingtime { 
-    font-size: 20px;
-    line-height: 30px;
+    font-size: 26x;
+    line-height: 48px;
 }
 
 footer{
-    padding:10%;
+    background-color: none;
+    height: auto;
+}
+
+.footer_text{
+    color:var(--white-color);
+    opacity: 1;
+    margin-bottom: 20px;
+    text-align: left;
+    width: 100%;
+}
+
+.content_footer_grid_1{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    width:80%;
+}
+
+.grid_footer_right_1{
+    border-left: none;
+    width:100%;
+}
+
+.grid_footer_left_1{
+    width:100%;
+    margin-bottom:30px;
 }
 
 
+
+
 #ball3 {
-display: none;
   }
 
 }
