@@ -432,9 +432,11 @@ window.addEventListener('scroll', function() {
     var footerPosition = footer.getBoundingClientRect();
     var windowHeight = window.innerHeight;
 
-
     if (footerPosition.top < windowHeight) {
         footer.style.opacity = '0.8';
-        footer.style.filter = 'saturate(1)';
+    } else {
+        footer.style.opacity = '0';
+
     }
 });
+
