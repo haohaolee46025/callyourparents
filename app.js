@@ -440,3 +440,21 @@ window.addEventListener('scroll', function() {
     }
 });
 
+
+// 
+const contentSection = d3.select('.blur');
+
+clickText.on('click', function() {
+    const currentState = contentSection.style('display');
+    if (currentState === 'none') {
+
+        contentSection.style('display', 'flex');
+        contentSection.style('filter', 'blur(10px)');
+    
+        setTimeout(() => {
+            contentSection.style('filter', 'blur(0px)');
+        }, 100); 
+    } else {
+        contentSection.style('display', 'none');
+    }
+});

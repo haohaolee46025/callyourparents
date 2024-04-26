@@ -263,7 +263,9 @@ h5.text {
     backdrop-filter: blur(1000px); 
     opacity: 0.9;
     display: none;
+    transition: filter 0.2s ease; /* 过渡效果，1秒钟内从模糊到清晰 */
 }
+
 
 #questioncard {
     display: flex;
@@ -277,7 +279,10 @@ h5.text {
     left: 50%; 
     top: 50%; 
     transform: translate(-50%, -50%); 
+    
+;
 }
+
 
 .todaychallenge{
     font-weight: 200;
@@ -289,7 +294,7 @@ h5.text {
 
 
 #question {
-    background-color: rgba(0, 0, 0, 1); 
+    background-color: rgb(24, 6, 0); 
     border: 1px solid var(--accent-color);
     border-radius: 10px;
     flex-direction: column; 
@@ -317,12 +322,13 @@ h5.text {
     font-family: "Karla", sans-serif;
     border: 1px solid var(--accent-color);
     border-radius: 50%;
+    
 }
 
 #closemark:hover {
     background-color: var(--accent-color);
     backdrop-filter: blur(10px); 
-    color:var(--background-color)
+    color:var(--background-color);
 }
 
 
