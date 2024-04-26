@@ -433,7 +433,7 @@ window.addEventListener('scroll', function() {
     var windowHeight = window.innerHeight;
 
     if (footerPosition.top < windowHeight) {
-        footer.style.opacity = '0.8';
+        footer.style.opacity = '0.7';
     } else {
         footer.style.opacity = '0';
 
