@@ -132,10 +132,10 @@ h5{
     color:var(--accent-color);
     text-align: center;
     font-family: "Karla", sans-serif;
-    font-size: 30px;
+    font-size: calc(var(--font-size)*2);
     font-weight: 600;
     margin-top: 5px;
-    margin-bottom: 5px;
+    margin-bottom: 12px;
 }
 
 
@@ -272,15 +272,14 @@ h5.text {
     flex-direction: column; 
     justify-content: center; 
     align-items: center; 
-    position: fixed; 
+    position: absolute; 
     z-index: 9999; 
     width: 50%; 
-    height: 50%; 
+    height: 100vh; 
     left: 50%; 
     top: 50%; 
     transform: translate(-50%, -50%); 
-    
-;
+
 }
 
 
@@ -526,6 +525,7 @@ footer {
 
     body{
         align-items: center;}
+
     #hero{
         background-color: var(--light-gray);
         height: auto;
@@ -581,6 +581,15 @@ footer {
     }
     
 
+    h5{
+
+        font-size: calc(var(--font-size)*1.5);
+    }
+
+    h6{
+        font-size: calc(var(--font-size)*1.2);
+        line-height: calc(var(--font-size)*1.6);;
+    }
 
 
 /* Planets Time labels and click text*/
@@ -598,8 +607,26 @@ footer {
 .meetingtime { 
     font-size: 24x;
     line-height: 40px;
-    margin-bottom: 20vh;
+    margin-bottom: 16vh;
 }
+
+#question {
+    padding-right:5vw;
+    padding-left:5vw;
+    padding-top: 5vh;
+    padding-bottom:5vh;
+}
+
+#questioncard {
+    align-items: center; 
+    position: absolute; 
+    width: 80%; 
+    height: 600px; 
+    left: 50%; 
+    top: 50%; 
+    transform: translate(-55%, -50%); 
+}
+
 
 footer{
     margin-top:30vh;
